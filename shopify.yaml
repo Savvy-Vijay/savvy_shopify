@@ -1,0 +1,4027 @@
+openapi: 3.0.0
+info:
+  title: Shopify Apis
+  description: Shopify Api document.
+  contact: {}
+  version: '1.0.0'
+servers:
+- url: http://124.123.122.86:3000/
+  variables: {}
+- url: https://124.123.122.86:3000/
+  variables: {}
+paths:        
+  /admin-login:
+    post:
+      tags:
+      - Admin
+      summary: AdminLogin
+      description: 'Admin Login '
+      operationId: AdminLogin
+      parameters: []
+      requestBody:
+        description: Admin login information
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/postAdminLoginRequest'
+              - description: Admin login information
+        required: true
+      responses:
+        '200':
+          description: Operation performed!
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAdminLoginResponse'
+      deprecated: false          
+components:
+  schemas:
+    postVendorLoginRequest:
+      title: postVendorLoginRequest
+      required:
+      - phone
+      - otp
+      - deviceId
+      - deviceName
+      - deviceOs
+      - deviceType
+      - firebaseToken
+      - ip
+      - timeZone
+      type: object
+      properties:
+        phone:
+          type: string
+          example: string
+        otp:
+          type: string
+          example: string
+        deviceId:
+          type: string
+          example: string
+        deviceName:
+          type: string
+          example: string
+        deviceOs:
+          type: string
+          example: string
+        deviceType:
+          type: string
+          example: string
+        firebaseToken:
+          type: string
+          example: string
+        ip:
+          type: string
+          example: string
+        timeZone:
+          type: string
+          example: +05:30
+    postVendorLoginResponse:
+      title: postVendorLoginResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data'
+    getProfessionalProfileResponse:
+      title: getProfessionalProfileResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data1'
+    patchVendorUpdateProfileResponse:
+      title: patchVendorUpdateProfileResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data2'
+    getVendorResponse:
+      title: getVendorResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data2'
+    patchProfessionalProfileUpdateResponse:
+      title: patchProfessionalProfileUpdateResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data4'
+    patchProfessionalProfileUpdateRequest:
+      title: patchProfessionalProfileUpdateRequest
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        timeSlots:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSlot2'
+          description: ''
+    getVendorBookingTabResponse:
+      title: getVendorBookingTabResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data5'
+          description: ''
+    getVendorServiceListResponse:
+      title: getVendorServiceListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data6'
+    getServicePackageAndPackagesDetailResponse:
+      title: getServicePackageAndPackagesDetailResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data7'
+          description: ''
+    getVendorServiceListWithDetailsResponse:
+      title: getVendorServiceListWithDetailsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data8'
+          description: ''
+    postVendorBookServiceForUserRequest:
+      title: postVendorBookServiceForUserRequest
+      required:
+      - phone
+      - packageDetails
+      - date
+      - startTime
+      - serviceProviderId
+      type: object
+      properties:
+        phone:
+          type: string
+          example: string
+        packageDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageDetail3'
+          description: ''
+        promoCode:
+          type: string
+          example: string
+        date:
+          type: string
+          example: YYYY-MM-DD
+        startTime:
+          type: string
+          example: 12:30 PM
+        serviceProviderId:
+          type: string
+          example: string
+        userAddressId:
+          type: string
+          example: string
+        userAddressDetail:
+          $ref: '#/components/schemas/UserAddressDetail'
+    postVendorBookServiceForUserResponse:
+      title: postVendorBookServiceForUserResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    getUserAndUserAddressExistsResponse:
+      title: getUserAndUserAddressExistsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data9'
+    patchAcceptBookingRequest:
+      title: patchAcceptBookingRequest
+      required:
+      - userTransactionId
+      type: object
+      properties:
+        userTransactionId:
+          type: string
+          example: string
+    patchAcceptBookingResponse:
+      title: patchAcceptBookingResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    patchVendorCancelBookingRequest:
+      title: patchVendorCancelBookingRequest
+      required:
+      - userTransactionId
+      type: object
+      properties:
+        userTransactionId:
+          type: string
+          example: string
+    patchVendorCancelBookingResponse:
+      title: patchVendorCancelBookingResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    postVendorDeactivateResponse:
+      title: postVendorDeactivateResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    getExportInvoiceResponse:
+      title: getExportInvoiceResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data10'
+    getVendorInvoiceScreenResponse:
+      title: getVendorInvoiceScreenResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data11'
+          description: ''
+    postServicesResponse:
+      title: postServicesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data8'
+    getServicesListResponse:
+      title: getServicesListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data8'
+          description: ''
+    getServicesResponse:
+      title: getServicesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data8'
+    patchServicesResponse:
+      title: patchServicesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data8'
+    deleteServicesResponse:
+      title: deleteServicesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    getServiceListWithCategoryAndSubcategoryResponse:
+      title: getServiceListWithCategoryAndSubcategoryResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data16'
+          description: ''
+    postServicePackagesResponse:
+      title: postServicePackagesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data17'
+    getServicePackagesListResponse:
+      title: getServicePackagesListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data17'
+          description: ''
+    getServicePackagesResponse:
+      title: getServicePackagesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data17'
+    patchServicePackagesResponse:
+      title: patchServicePackagesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data17'
+    deleteServicePackagesResponse:
+      title: deleteServicePackagesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    getServiceAndServicePackagesResponse:
+      title: getServiceAndServicePackagesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data21'
+          description: ''
+    postPackageDetailsResponse:
+      title: postPackageDetailsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data22'
+    getPackageDetailsListResponse:
+      title: getPackageDetailsListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data23'
+          description: ''
+    getPackageDetailsResponse:
+      title: getPackageDetailsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data23'
+    patchPackageDetailsResponse:
+      title: patchPackageDetailsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data23'
+    deletePackageDetailsResponse:
+      title: deletePackageDetailsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    getUserAddressesListResponse:
+      title: getUserAddressesListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data26'
+          description: ''
+    getUserAddressesResponse:
+      title: getUserAddressesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data26'
+    postUserAddressesRequest:
+      title: postUserAddressesRequest
+      required:
+      - name
+      - address
+      - addressTypeId
+      - latitude
+      - longitude
+      - type
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        flatNo:
+          type: string
+          example: string
+        address:
+          type: string
+          example: string
+        addressTypeId:
+          type: string
+          example: string
+        landmark:
+          type: string
+          example: string
+        addressTypeOtherValue:
+          type: string
+          example: string
+        latitude:
+          type: string
+          example: '23.0013321264772'
+        longitude:
+          type: string
+          example: '72.4664240303456'
+        isDefault:
+          type: boolean
+          example: false
+        type:
+          type: string
+          example: string
+    postUserAddressesResponse:
+      title: postUserAddressesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data26'
+    getTimeSlotListResponse:
+      title: getTimeSlotListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data29'
+          description: ''
+    getAddressTypeResponse:
+      title: getAddressTypeResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data30'
+          description: ''
+    patchUserAddressesRequest:
+      title: patchUserAddressesRequest
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        flatNo:
+          type: string
+          example: string
+        landmark:
+          type: string
+          example: string
+        address:
+          type: string
+          example: string
+        addressTypeId:
+          type: string
+          example: string
+        addressTypeOtherValue:
+          type: string
+          example: string
+        latitude:
+          type: string
+          example: '23.0013321264772'
+        longitude:
+          type: string
+          example: '72.4664240303456'
+        isDefault:
+          type: boolean
+          example: false
+        type:
+          type: string
+          example: string
+    patchUserAddressesResponse:
+      title: patchUserAddressesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data26'
+    deleteUserAddressesResponse:
+      title: deleteUserAddressesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    getServiceCategoryAndSubCategory:
+      title: getServiceCategoryAndSubCategory
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data32'
+          description: ''
+    postRegisterRequest:
+      title: postRegisterRequest
+      required:
+      - phone
+      - deviceId
+      - deviceName
+      - deviceOs
+      - deviceType
+      - firebaseToken
+      - ip
+      - timeZone
+      - registerFor
+      type: object
+      properties:
+        phone:
+          type: string
+          example: string
+        deviceId:
+          type: string
+          example: 731F2D9E - 6554 - 4CC8 - 8211 - FBE7B8665C39
+        deviceName:
+          type: string
+          example: string
+        deviceOs:
+          type: string
+          example: string
+        deviceType:
+          type: string
+          example: string
+        firebaseToken:
+          type: string
+          example: string
+        ip:
+          type: string
+          example: string
+        timeZone:
+          type: string
+          example: +05:30
+        registerFor:
+          type: string
+          example: user
+    postRegisterResponse:
+      title: postRegisterResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    postVerifyOtpRequest:
+      title: postVerifyOtpRequest
+      required:
+      - phone
+      - otp
+      - deviceId
+      - deviceName
+      - deviceOs
+      - deviceType
+      - firebaseToken
+      - ip
+      - timeZone
+      type: object
+      properties:
+        phone:
+          type: string
+          example: string
+        otp:
+          type: string
+          example: string
+        deviceId:
+          type: string
+          example: 731F2D9E - 6554 - 4CC8 - 8211 - FBE7B8665C39
+        deviceName:
+          type: string
+          example: string
+        deviceOs:
+          type: string
+          example: string
+        deviceType:
+          type: string
+          example: string
+        firebaseToken:
+          type: string
+          example: string
+        ip:
+          type: string
+          example: string
+        timeZone:
+          type: string
+          example: +05:30
+    postVerifyOtpResponse:
+      title: postVerifyOtpResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data33'
+    postAdminLoginRequest:
+      title: postAdminLoginRequest
+      required:
+      - email
+      - password
+      - deviceId
+      - deviceName
+      - deviceOs
+      - deviceType
+      - firebaseToken
+      - ip
+      - timeZone
+      type: object
+      properties:
+        email:
+          type: string
+          example: string
+        password:
+          type: string
+          example: string
+        deviceId:
+          type: string
+          example: string
+        deviceName:
+          type: string
+          example: string
+        deviceOs:
+          type: string
+          example: string
+        deviceType:
+          type: string
+          example: string
+        firebaseToken:
+          type: string
+          example: string
+        ip:
+          type: string
+          example: string
+        timeZone:
+          type: string
+          example: +05:30
+    postAdminLoginResponse:
+      title: postAdminLoginResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data34'
+    postLogoutResponse:
+      title: postLogoutResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    getHomeResponse:
+      title: getHomeResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data35'
+    getPersonalResponse:
+      title: getPersonalResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data36'
+    getApplianceResponse:
+      title: getApplianceResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data36'
+    getServicePackagesListDetailResponse:
+      title: getServicePackagesListDetailResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data38'
+    getTabSearchResponse:
+      title: getTabSearchResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data39'
+          description: ''
+    getBookedServicesListResponse:
+      title: getBookedServicesListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: Your booking list found successfully.
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data40'
+          description: ''
+    getGenerateCheckoutSessionUrlResponse:
+      title: getGenerateCheckoutSessionUrlResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data41'
+    patchConfirmBookingRequest:
+      title: patchConfirmBookingRequest
+      required:
+      - userTransactionId
+      type: object
+      properties:
+        userTransactionId:
+          type: string
+          example: string
+    patchConfirmBookingResponse:
+      title: patchConfirmBookingResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    patchUserCancelBookingRequest:
+      title: patchUserCancelBookingRequest
+      required:
+      - userTransactionId
+      - cancelReason
+      type: object
+      properties:
+        userTransactionId:
+          type: string
+          example: string
+        cancelReason:
+          type: string
+          example: string
+    patchUserCancelBookingResponse:
+      title: patchUserCancelBookingResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    getUserAccountResponse:
+      title: getUserAccountResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data42'
+    getCancellationReasonsListResponse:
+      title: getCancellationReasonsListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data43'
+    patchRankUpdateRequest:
+      title: patchRankUpdateRequest
+      type: object
+      properties:
+        type:
+          type: string
+          example: string
+        rankList:
+          type: array
+          items:
+            $ref: '#/components/schemas/RankList'
+          description: ''
+    patchRankUpdateResponse:
+      title: patchRankUpdateResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: string
+        message:
+          type: string
+          example: string
+    postServiceCategoriesResponse:
+      title: postServiceCategoriesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data44'
+    getServiceCategoriesListResponse:
+      title: getServiceCategoriesListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data45'
+    getServiceCategoriesResponse:
+      title: getServiceCategoriesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data44'
+    patchServiceCategoriesResponse:
+      title: patchServiceCategoriesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data44'
+    deleteServiceCategoriesResponse:
+      title: deleteServiceCategoriesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    getCategoryTypesResponse:
+      title: getCategoryTypesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data30'
+          description: ''
+    getServiceCategoriesListWithTypeResponse:
+      title: getServiceCategoriesListWithTypeResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data44'
+          description: ''
+    postServiceSubCategoriesResponse:
+      title: postServiceSubCategoriesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data50'
+    getServiceSubCategoriesListResponse:
+      title: getServiceSubCategoriesListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data51'
+    getServiceSubCategoriesResponse:
+      title: getServiceSubCategoriesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data50'
+    patchServiceSubCategoriesResponse:
+      title: patchServiceSubCategoriesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data50'
+          description: ''
+    deleteServiceSubCategoriesResponse:
+      title: deleteServiceSubCategoriesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    getServiceCategoryAndSubCategoryResponse:
+      title: getServiceCategoryAndSubCategoryResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data32'
+          description: ''
+    postPagesResponse:
+      title: postPagesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data55'
+    getPagesListResponse:
+      title: getPagesListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data56'
+    getPagesResponse:
+      title: getPagesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data55'
+    patchPagesResponse:
+      title: patchPagesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data55'
+    postHelpCenterTopicsResponse:
+      title: postHelpCenterTopicsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data59'
+    getHelpCenterTopicsListResponse:
+      title: getHelpCenterTopicsListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data60'
+    getHelpCenterTopicsResponse:
+      title: getHelpCenterTopicsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data59'
+    patchHelpCenterTopicsResponse:
+      title: patchHelpCenterTopicsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data59'
+    deleteHelpCenterTopicsResponse:
+      title: deleteHelpCenterTopicsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    postHelpCenterTopicSolutionsResponse:
+      title: postHelpCenterTopicSolutionsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data63'
+    getHelpCenterTopicSolutionsListResponse:
+      title: getHelpCenterTopicSolutionsListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data64'
+    getHelpCenterTopicSolutionsResponse:
+      title: getHelpCenterTopicSolutionsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data63'
+    patchHelpCenterTopicSolutionsResponse:
+      title: patchHelpCenterTopicSolutionsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data63'
+    deleteHelpCenterTopicSolutionsResponse:
+      title: deleteHelpCenterTopicSolutionsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    postCancellationReasonsResponse:
+      title: postCancellationReasonsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data67'
+    getCancellationReasonsListDetailResponse:
+      title: getCancellationReasonsListDetailResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data68'
+    getCancellationReasonsResponse:
+      title: getCancellationReasonsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data67'
+    patchCancellationReasonsResponse:
+      title: patchCancellationReasonsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data67'
+    deleteCancellationReasonsResponse:
+      title: deleteCancellationReasonsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    getTimeSlotsListResponse:
+      title: getTimeSlotsListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data71'
+    patchTimeSlotsResponse:
+      title: patchTimeSlotsResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data29'
+    getUserWithRolesResponse:
+      title: getUserWithRolesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data73'
+    postGrantAccessToUserRequest:
+      title: postGrantAccessToUserRequest
+      type: object
+      properties:
+        userId:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        inserted:
+          type: array
+          items:
+            $ref: '#/components/schemas/Inserted'
+          description: ''
+        deleted:
+          type: array
+          items:
+            $ref: '#/components/schemas/Deleted'
+          description: ''
+    postGrantAccessToUserResponse:
+      title: postGrantAccessToUserResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data74'
+    getSettingListResponse:
+      title: getSettingListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data75'
+    patchSettingRequest:
+      title: patchSettingRequest
+      required:
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+          example: string
+    patchSettingResponse:
+      title: patchSettingResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data76'
+    getPackageDetailSearchResponse:
+      title: getPackageDetailSearchResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data77'
+          description: ''
+    getServiceSubCategoryListResponse:
+      title: getServiceSubCategoryListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data78'
+          description: ''
+    getUsersResponse:
+      title: getUsersResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data79'
+    patchUsersRequest:
+      title: patchUsersRequest
+      type: object
+      properties:
+        email:
+          type: string
+          example: string
+        fullName:
+          type: string
+          example: string
+    patchUsersResponse:
+      title: patchUsersResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data79'
+    patchProfileUpdateResponse:
+      title: patchProfileUpdateResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data81'
+    postUserBookServiceRequest:
+      title: postUserBookServiceRequest
+      required:
+      - packageDetails
+      - userAddressId
+      - date
+      - startTime
+      - serviceProviderId
+      type: object
+      properties:
+        packageDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageDetail3'
+          description: ''
+        tip:
+          type: string
+          example: string
+        deliveryInstruction:
+          type: boolean
+          example: false
+        promoCode:
+          type: string
+          example: string
+        userAddressId:
+          type: string
+          example: string
+        date:
+          type: string
+          example: YYYY-MM-DD
+        startTime:
+          type: string
+          example: 11:30 AM
+        serviceProviderId:
+          type: string
+          example: string
+    postUserBookServiceResponse:
+      title: postUserBookServiceResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    postDeleteAccountResponse:
+      title: postDeleteAccountResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: '1'
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    patchSendOtpForCompleteServiceRequest:
+      title: patchSendOtpForCompleteServiceRequest
+      required:
+      - userTransactionId
+      type: object
+      properties:
+        userTransactionId:
+          type: string
+          example: string
+    patchSendOtpForCompleteServiceResponse:
+      title: patchSendOtpForCompleteServiceResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: string
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    patchVendorCompleteServiceRequest:
+      title: patchVendorCompleteServiceRequest
+      required:
+      - userTransactionId
+      - otp
+      type: object
+      properties:
+        userTransactionId:
+          type: string
+          example: string
+        otp:
+          type: string
+          example: string
+    patchVendorCompleteServiceResponse:
+      title: patchVendorCompleteServiceResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: string
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    postRatingRequest:
+      title: postRatingRequest
+      required:
+      - userRatingId
+      - rating
+      - isCancelled
+      type: object
+      properties:
+        userRatingId:
+          type: string
+          example: string
+        rating:
+          type: string
+          example: string
+        isCancelled:
+          type: boolean
+          example: false
+    postRatingResponse:
+      title: postRatingResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: string
+        message:
+          type: string
+          example: string
+        data:
+          type: object
+    getRatingListResponse:
+      title: getRatingListResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: string
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data82'
+          description: ''
+    getWebHelpResponse:
+      title: getWebHelpResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: string
+        message:
+          type: string
+          example: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data83'
+          description: ''
+    getDynamicPagesResponse:
+      title: getDynamicPagesResponse
+      type: object
+      properties:
+        status:
+          type: string
+          example: string
+        message:
+          type: string
+          example: string
+        data:
+          $ref: '#/components/schemas/Data84'
+    CancellationRow:
+      title: CancellationRow
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        title:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+    Child:
+      title: Child
+      type: object
+      properties:
+        packageDetailId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        time:
+          type: string
+          example: string
+        displayTime:
+          type: string
+          example: string
+    Child1:
+      title: Child1
+      type: object
+      properties:
+        servicePackageDetailId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+        description:
+          type: string
+          example: string
+        price:
+          type: string
+        time:
+          type: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        servicePackageId:
+          type: string
+          example: string
+        packageDetailParentId:
+          type: string
+          example: string
+        image:
+          type: string
+        video:
+          type: string
+    Child2:
+      title: Child2
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        time:
+          type: string
+          example: string
+    Data:
+      title: Data
+      type: object
+      properties:
+        accessToken:
+          type: string
+          example: string
+        userDetails:
+          $ref: '#/components/schemas/UserDetails'
+    Data1:
+      title: Data1
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        timeSlots:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSlot'
+          description: ''
+        userAddress:
+          $ref: '#/components/schemas/UserAddress'
+    Data2:
+      title: Data2
+      type: object
+      properties:
+        serviceProviderId:
+          type: string
+          example: string
+        firstName:
+          type: string
+          example: string
+        lastName:
+          type: string
+          example: string
+        email:
+          type: string
+          example: string
+        dateOfBirth:
+          type: string
+          example: YYYY-MM-DD
+        gender:
+          type: string
+          example: string
+    Data4:
+      title: Data4
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        timeSlots:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSlot'
+          description: ''
+        userAddress:
+          $ref: '#/components/schemas/UserAddress'
+    Data5:
+      title: Data5
+      type: object
+      properties:
+        userTransactionId:
+          type: string
+          example: string
+        paymentStatus:
+          type: string
+          example: string
+        completeOtp:
+          type: string
+          example: string
+        startTime:
+          type: string
+          example: 02:00 PM
+        endTime:
+          type: string
+          example: 05:00 PM
+        bookingStatus:
+          type: string
+          example: string
+        amountTotal:
+          type: string
+          example: string
+        tip:
+          type: string
+          example: string
+        displayStartPackageTime:
+          type: string
+          example: string
+        userAddress:
+          type: string
+          example: string
+        userAddressId:
+          type: string
+          example: string
+        displayTime:
+          type: string
+          example: string
+        user_booked_package_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserBookedPackageDetail'
+          description: ''
+    Data6:
+      title: Data6
+      type: object
+      properties:
+        package_list_and_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageListAndDetail'
+          description: ''
+    Data7:
+      title: Data7
+      type: object
+      properties:
+        servicePackageId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        serviceId:
+          type: string
+          example: string
+        package_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageDetail2'
+          description: ''
+    Data8:
+      title: Data8
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        serviceCategoryId:
+          type: string
+          example: string
+        serviceSubCategoryId:
+          type: string
+          example: string
+        serviceProviderId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+    Data9:
+      title: Data9
+      type: object
+      properties:
+        userAddressId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        flatNo:
+          type: string
+          example: string
+        address:
+          type: string
+          example: string
+        addressTypeId:
+          type: string
+          example: string
+        addressTypeOtherValue:
+          type: string
+          example: string
+        latitude:
+          type: string
+          example: '23.0013321264772'
+        longitude:
+          type: string
+          example: '72.4664240303456'
+        isDefault:
+          type: boolean
+          example: true
+    Data10:
+      title: Data10
+      type: object
+      properties:
+        url:
+          type: string
+          example: string
+    Data11:
+      title: Data11
+      type: object
+      properties:
+        month:
+          type: string
+          example: string
+        monthName:
+          type: string
+          example: string
+        year:
+          type: string
+          example: string
+    Data16:
+      title: Data16
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        id:
+          type: string
+          example: string
+        categoryTypeId:
+          type: string
+          example: string
+        service_sub_categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceSubCategory'
+          description: ''
+    Data17:
+      title: Data17
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        serviceId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+        categoryId:
+          type: string
+          example: string
+        subCategoryId:
+          type: string
+          example: string
+    Data21:
+      title: Data21
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        id:
+          type: string
+          example: string
+        service_packages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServicePackage'
+          description: ''
+    Data22:
+      title: Data22
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        time:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        servicePackageId:
+          type: string
+          example: string
+        packageDetailParentId:
+          type: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+        serviceId:
+          type: string
+          example: string
+        package_detail_files:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageDetailFile'
+          description: ''
+        children:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    Data23:
+      title: Data23
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        time:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        servicePackageId:
+          type: string
+          example: string
+        packageDetailParentId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+        serviceId:
+          type: string
+          example: string
+        package_detail_files:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageDetailFile'
+          description: ''
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/Child2'
+          description: ''
+    Data26:
+      title: Data26
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        flatNo:
+          type: string
+          example: string
+        address:
+          type: string
+          example: string
+        latitude:
+          type: string
+          example: '23.0013321264772'
+        longitude:
+          type: string
+          example: '72.4664240303456'
+        landmark:
+          type: string
+          example: string
+        addressTypeOtherValue:
+          type: string
+          example: string
+        addressTypeName:
+          type: string
+          example: string
+        isDefault:
+          type: boolean
+          example: false
+    Data29:
+      title: Data29
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        time:
+          type: string
+          example: 8:00 AM
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+    Data30:
+      title: Data30
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+    Data32:
+      title: Data32
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        id:
+          type: string
+          example: string
+        categoryTypeId:
+          type: string
+          example: string
+        service_sub_categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceSubCategory1'
+          description: ''
+    Data33:
+      title: Data33
+      type: object
+      properties:
+        accessToken:
+          type: string
+          example: string
+        userDetails:
+          $ref: '#/components/schemas/UserDetails1'
+    Data34:
+      title: Data34
+      type: object
+      properties:
+        accessToken:
+          type: string
+          example: string
+        userDetails:
+          $ref: '#/components/schemas/UserDetails2'
+    Data35:
+      title: Data35
+      type: object
+      properties:
+        serviceCategorySubCategoryDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceCategorySubCategoryDetail'
+          description: ''
+        newAndNoteWorthyDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewAndNoteWorthyDetail'
+          description: ''
+        mostBookedServiceDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/MostBookedServiceDetail'
+          description: ''
+        dynamicServiceList:
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicServiceList'
+          description: ''
+    Data36:
+      title: Data36
+      type: object
+      properties:
+        serviceCategorySubCategoryDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceCategorySubCategoryDetail1'
+          description: ''
+        newAndNoteWorthyDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewAndNoteWorthyDetail'
+          description: ''
+        mostBookedServiceDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/MostBookedServiceDetail'
+          description: ''
+        dynamicServiceList:
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicServiceList'
+          description: ''
+    Data38:
+      title: Data38
+      type: object
+      properties:
+        sub_category_detail:
+          $ref: '#/components/schemas/SubCategoryDetail'
+        package_list_and_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageListAndDetail'
+          description: ''
+    Data39:
+      title: Data39
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        categoryId:
+          type: string
+          example: string
+        subCategoryId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        servicePackageId:
+          type: string
+          example: string
+    Data40:
+      title: Data40
+      type: object
+      properties:
+        userTransactionId:
+          type: string
+          example: string
+        completeOtp:
+          type: string
+          example: string
+        paymentStatus:
+          type: string
+          example: string
+        startTime:
+          type: string
+          example: 4:00 PM
+        endTime:
+          type: string
+          example: 06:00 PM
+        bookingStatus:
+          type: string
+          example: string
+        amountTotal:
+          type: string
+          example: string
+        tip:
+          type: string
+          example: string
+        cancelReason:
+          type: string
+          example: string
+        userAddress:
+          type: string
+          example: string
+        displayStartPackageTime:
+          type: string
+          example: string
+        user_booked_package_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserBookedPackageDetail'
+          description: ''
+    Data41:
+      title: Data41
+      type: object
+      properties:
+        paymentUrl:
+          type: string
+          example: string
+    Data42:
+      title: Data42
+      type: object
+      properties:
+        menu_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/MenuList'
+          description: ''
+        user_details:
+          $ref: '#/components/schemas/UserDetails3'
+    Data43:
+      title: Data43
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        cancellation_rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/CancellationRow'
+          description: ''
+    Data44:
+      title: Data44
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        gender:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        categoryTypeId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+    Data45:
+      title: Data45
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row'
+          description: ''
+    Data50:
+      title: Data50
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        serviceCategoryId:
+          type: string
+          example: string
+        serviceCategoryName:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+    Data51:
+      title: Data51
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row1'
+          description: ''
+    Data55:
+      title: Data55
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+    Data56:
+      title: Data56
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row2'
+          description: ''
+    Data59:
+      title: Data59
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+    Data60:
+      title: Data60
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row3'
+          description: ''
+    Data63:
+      title: Data63
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        title:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        helpCenterTopicId:
+          type: string
+          example: string
+        helpCenterTopicName:
+          type: string
+          example: string
+    Data64:
+      title: Data64
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row4'
+          description: ''
+    Data67:
+      title: Data67
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        title:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+    Data68:
+      title: Data68
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row5'
+          description: ''
+    Data71:
+      title: Data71
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row6'
+          description: ''
+    Data73:
+      title: Data73
+      type: object
+      properties:
+        role_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleList'
+          description: ''
+        user_list:
+          $ref: '#/components/schemas/UserList'
+    Data74:
+      title: Data74
+      type: object
+      properties:
+        userId:
+          type: string
+          example: string
+        firstName:
+          type: string
+          example: string
+        lastName:
+          type: string
+          example: string
+        email:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        user_roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+          description: ''
+    Data75:
+      title: Data75
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row8'
+          description: ''
+    Data76:
+      title: Data76
+      type: object
+      properties:
+        settingId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        value:
+          type: string
+          example: string
+    Data77:
+      title: Data77
+      type: object
+      properties:
+        packageDetailId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        rating:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        servicePackageId:
+          type: string
+          example: string
+    Data78:
+      title: Data78
+      type: object
+      properties:
+        serviceCategoryId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        serviceSubCategoryId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+    Data79:
+      title: Data79
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        isVerified:
+          type: boolean
+          example: false
+        fullName:
+          type: string
+          example: string
+        email:
+          type: string
+          example: string
+    Data81:
+      title: Data81
+      type: object
+      properties:
+        userId:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        isVerified:
+          type: boolean
+          example: false
+        fullName:
+          type: string
+          example: string
+        email:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+    Data82:
+      title: Data82
+      type: object
+      properties:
+        userRatingId:
+          type: string
+          example: string
+        userTransactionId:
+          type: string
+          example: string
+        rating:
+          type: number
+          example: 0
+    Data83:
+      title: Data83
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        help_center_topic_solutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/HelpCenterTopicSolution'
+          description: ''
+    Data84:
+      title: Data84
+      type: object
+      properties:
+        menu_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/MenuList1'
+          description: ''
+    Deleted:
+      title: Deleted
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        isSelected:
+          type: boolean
+          example: true
+    DynamicServiceList:
+      title: DynamicServiceList
+      type: object
+      properties:
+        servicesId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        serviceCategoryId:
+          type: string
+          example: string
+        serviceSubCategoryId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        service_packages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServicePackage1'
+          description: ''
+    HelpCenterTopicSolution:
+      title: HelpCenterTopicSolution
+      type: object
+      properties:
+        title:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+    Inserted:
+      title: Inserted
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        isSelected:
+          type: boolean
+          example: true
+    MenuList:
+      title: MenuList
+      type: object
+      properties:
+        title:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/Record'
+          description: ''
+    MenuList1:
+      title: MenuList1
+      type: object
+      properties:
+        title:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        price:
+          type: string
+        records:
+          type: array
+          items: {}
+          description: ''
+          example: []
+    MostBookedServiceDetail:
+      title: MostBookedServiceDetail
+      type: object
+      properties:
+        packageDetailId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        categoryId:
+          type: string
+          example: string
+        subCategoryId:
+          type: string
+          example: string
+        servicePackageId:
+          type: string
+          example: string
+        rating:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+    NewAndNoteWorthyDetail:
+      title: NewAndNoteWorthyDetail
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        categoryId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        subCategoryId:
+          type: string
+          example: string
+    PackageDetail:
+      title: PackageDetail
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        packageDetailId:
+          type: string
+          example: string
+    PackageDetail1:
+      title: PackageDetail1
+      type: object
+      properties:
+        packageDetailId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        time:
+          type: string
+          example: string
+        displayTime:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        rating:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/Child'
+          description: ''
+        package_detail_files:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageDetailFile'
+          description: ''
+        startAt:
+          type: string
+          example: string
+    PackageDetail2:
+      title: PackageDetail2
+      type: object
+      properties:
+        servicePackageDetailId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        price:
+          type: string
+          example: string
+        time:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        servicePackageId:
+          type: string
+          example: string
+        packageDetailParentId:
+          type: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/Child1'
+          description: ''
+    PackageDetail3:
+      title: PackageDetail3
+      required:
+      - packageDetailId
+      type: object
+      properties:
+        packageDetailId:
+          type: string
+          example: string
+    PackageDetailFile:
+      title: PackageDetailFile
+      type: object
+      properties:
+        packageDetailFilesId:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+    PackageListAndDetail:
+      title: PackageListAndDetail
+      type: object
+      properties:
+        servicePackageId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        serviceProviderId:
+          type: string
+          example: string
+        rating:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+        package_details:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageDetail1'
+          description: ''
+    RankList:
+      title: RankList
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+    Record:
+      title: Record
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        help_center_topic_solutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/HelpCenterTopicSolution'
+          description: ''
+    RoleList:
+      title: RoleList
+      type: object
+      properties:
+        roleId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        isSelected:
+          type: boolean
+          example: false
+    Row:
+      title: Row
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        gender:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        categoryTypeId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+    Row1:
+      title: Row1
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        serviceCategoryId:
+          type: string
+          example: string
+        serviceCategoryName:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+    Row2:
+      title: Row2
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+    Row3:
+      title: Row3
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+    Row4:
+      title: Row4
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        title:
+          type: string
+          example: string
+        description:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        helpCenterTopicId:
+          type: string
+          example: string
+        helpCenterTopicName:
+          type: string
+          example: string
+    Row5:
+      title: Row5
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        title:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+    Row6:
+      title: Row6
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        time:
+          type: string
+          example: string
+        rank:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+    Row7:
+      title: Row7
+      type: object
+      properties:
+        userId:
+          type: string
+          example: string
+        firstName:
+          type: string
+          example: string
+        lastName:
+          type: string
+          example: string
+        email:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        user_roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+          description: ''
+    Row8:
+      title: Row8
+      type: object
+      properties:
+        settingId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        value:
+          type: string
+          example: string
+    Service:
+      title: Service
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        serviceId:
+          type: string
+          example: string
+    ServiceCategorySubCategoryDetail:
+      title: ServiceCategorySubCategoryDetail
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        categoryId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        service_sub_categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceSubCategory2'
+          description: ''
+    ServiceCategorySubCategoryDetail1:
+      title: ServiceCategorySubCategoryDetail1
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        categoryId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        subCategoryId:
+          type: string
+          example: string
+    ServicePackage:
+      title: ServicePackage
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        id:
+          type: string
+          example: string
+    ServicePackage1:
+      title: ServicePackage1
+      type: object
+      properties:
+        servicePackageId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+    ServiceSubCategory:
+      title: ServiceSubCategory
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        serviceSubCategoryId:
+          type: string
+          example: string
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+          description: ''
+    ServiceSubCategory1:
+      title: ServiceSubCategory1
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        id:
+          type: string
+          example: string
+    ServiceSubCategory2:
+      title: ServiceSubCategory2
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        subCategoryId:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+    SubCategoryDetail:
+      title: SubCategoryDetail
+      type: object
+      properties:
+        serviceCategoryId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        serviceSubCategoryId:
+          type: string
+          example: string
+        rating:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        video:
+          type: string
+          example: string
+    TimeSlot:
+      title: TimeSlot
+      type: object
+      properties:
+        timeSlotId:
+          type: string
+          example: string
+        startTime:
+          type: string
+          example: 05:00 PM
+        endTime:
+          type: string
+          example: 08:30 PM
+    TimeSlot2:
+      title: TimeSlot2
+      type: object
+      properties:
+        startTime:
+          type: string
+          example: 05:00 PM
+        endTime:
+          type: string
+          example: 08:30 PM
+    UserAddress:
+      title: UserAddress
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        flatNo:
+          type: string
+          example: string
+        address:
+          type: string
+          example: string
+        latitude:
+          type: string
+          example: '23.0013321264772'
+        longitude:
+          type: string
+          example: '72.4664240303456'
+        landmark:
+          type: string
+          example: string
+        addressTypeOtherValue:
+          type: string
+          example: string
+        addressTypeName:
+          type: string
+          example: string
+        isDefault:
+          type: boolean
+          example: true
+    UserAddressDetail:
+      title: UserAddressDetail
+      type: object
+      properties:
+        name:
+          type: string
+          example: string
+        flatNo:
+          type: string
+          example: string
+        address:
+          type: string
+          example: string
+        addressTypeOtherValue:
+          type: string
+          example: string
+        latitude:
+          type: string
+          example: '23.0013321264772'
+        longitude:
+          type: string
+          example: '72.4664240303456'
+        isDefault:
+          type: boolean
+          example: true
+    UserBookedPackageDetail:
+      title: UserBookedPackageDetail
+      type: object
+      properties:
+        userBookedPackageDetailId:
+          type: string
+          example: string
+        startTime:
+          type: string
+          example: string
+        date:
+          type: string
+          example: YYYY-MM-DD
+        isConformed:
+          type: boolean
+          example: false
+        package_detail:
+          $ref: '#/components/schemas/PackageDetail'
+    UserDetails:
+      title: UserDetails
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        isVerified:
+          type: boolean
+          example: true
+        activated:
+          type: boolean
+          example: true
+        deleted:
+          type: boolean
+          example: false
+        fullName:
+          type: string
+          example: string
+        email:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+        serviceProviderId:
+          type: string
+          example: string
+        serviceProviderName:
+          type: string
+          example: string
+        serviceProviderImage:
+          type: string
+          example: string
+    UserDetails1:
+      title: UserDetails1
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        isVerified:
+          type: boolean
+          example: false
+        activated:
+          type: boolean
+          example: false
+        deleted:
+          type: boolean
+          example: false
+        fullName:
+          type: string
+          example: string
+        email:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+    UserDetails2:
+      title: UserDetails2
+      type: object
+      properties:
+        id:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        isVerified:
+          type: boolean
+          example: true
+        activated:
+          type: boolean
+          example: false
+        deleted:
+          type: boolean
+          example: false
+        fullName:
+          type: string
+          example: string
+        email:
+          type: string
+          example: string
+    UserDetails3:
+      title: UserDetails3
+      type: object
+      properties:
+        userId:
+          type: string
+          example: string
+        phone:
+          type: string
+          example: string
+        isVerified:
+          type: boolean
+          example: false
+        fullName:
+          type: string
+          example: string
+        email:
+          type: string
+          example: string
+        image:
+          type: string
+          example: string
+    UserList:
+      title: UserList
+      type: object
+      properties:
+        count:
+          type: number
+          example: 5
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Row7'
+          description: ''
+    UserRole:
+      title: UserRole
+      type: object
+      properties:
+        roleId:
+          type: string
+          example: string
+        name:
+          type: string
+          example: string
+        type:
+          type: string
+          example: string
+        isSelected:
+          type: boolean
+          example: true
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      description: Authentication Token
+      name: Authorization
+      in: header
+security: []
+tags:
+- name: User
+  description: Endpoints
+- name: Authentication
+  description: ''
+- name: Vendor
+  description: ''
+- name: Admin
+  description: ''
+- name: Admin / Vendor
+  description: ''
+- name: User / Vendor
+  description: ''
+- name: WebUser
+  description: ''
