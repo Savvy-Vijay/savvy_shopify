@@ -9,19 +9,20 @@ class ShopifyAPI {
     debugPrint('APIToken--$apiToken');
   }
 
-  Future<void> callLoginAPI({required String email, required String password,}) async {
+  Future<void> callLoginAPI({required String email, required String password, required String deviceId, required String deviceName, required String deviceOs, required String deviceType,
+    required String firebaseToken, required String ip, required String timeZone,}) async {
     AdminLoginRequest adminLoginRequest =
     AdminLoginRequest(
           (b) {
-        b.email = "";
-        b.password = "";
-        b.deviceId = "";
-        b.deviceName = "";
-        b.deviceOs = "";
-        b.deviceType = "";
-        b.firebaseToken = "";
-        b.ip = "";
-        b.timeZone = "";
+        b.email = email;
+        b.password = password;
+        b.deviceId = deviceId;
+        b.deviceName = deviceName;
+        b.deviceOs = deviceOs;
+        b.deviceType = deviceType;
+        b.firebaseToken = firebaseToken;
+        b.ip = ip;
+        b.timeZone = timeZone;
       },
     );
     Api().getAdminApi().adminLogin(adminLoginRequest: adminLoginRequest).then((value) {
