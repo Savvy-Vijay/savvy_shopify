@@ -1,22 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
 
-class ShopifyAPI {
+class SavvyShopify {
   static String apiKey = "";
   static String apiToken = "";
   static String url = "";
 
   void initialMethod() {
-    debugPrint('APIKey--$apiKey');
-    debugPrint('APIToken--$apiToken');
-    debugPrint('API-URL--$url');
+    print('APIKey--$apiKey');
+    print('APIToken--$apiToken');
+    print('API-URL--$url');
   }
 
   Future<void> callLoginAPI({required String apiPath, required Map<String, dynamic>? queryParameters}) async {
     var url =
-    Uri.https(ShopifyAPI.url, apiPath, queryParameters);
+    Uri.https(SavvyShopify.url, apiPath, queryParameters);
 
     // Await the http get response, then decode the json-formatted response.
     var response = await http.post(url);
