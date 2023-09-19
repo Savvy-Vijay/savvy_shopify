@@ -27,8 +27,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   openapi_generator: ^4.10.0
   openapi_generator_annotations: ^4.10.0
-  api:
-    path: api/shopify_api
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
