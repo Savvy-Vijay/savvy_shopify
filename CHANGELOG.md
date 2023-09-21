@@ -4,3 +4,5 @@ Adding shopify wrapper package, currently it's in development mode.
 ## 0.0.2
 Add Shopify api method
 
+## 0.0.3
+Added more platform and example

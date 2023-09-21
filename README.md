@@ -1,16 +1,38 @@
-# savvy_shopify
+# Savvient Sopify
 
-Shopify library flutter package
+================
 
-## Getting Started
+## Usage ##
 
-This project is a starting point for a Flutter application.
+To use this library in your code:
 
-A few resources to get you started if this is your first Flutter project:
+* add a dependency in your `pubspec.yaml` :
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+  ```yaml
+  dependencies:
+    savvy_shopify: <latest version>
+  ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* import package on top header part:
+
+  ```
+  import 'package:savvy_shopify/savvy_shopify.dart';
+  
+  ```
+* All method list which can be used by user:
+
+  ```
+  Future<Map<String, dynamic>?> locationListAPI()
+  Future<Map<String, dynamic>?> shopCategoryListAPI({required String countryCode, required String pageIndex})
+  Future<Map<String, dynamic>?> shopProductListAPI({required String countryCode, required String categoryId, required String pageIndex, String searchText = ""})
+  Future<Map<String, dynamic>?> shopProductDetailAPI({required String countryCode, required String productId})
+    
+  ```
+
+## Examples ##
+
+Examples found at https://pub.dev/packages/savvy_shopify/example are available in a `dart` version at https://pub.dev/packages/flutter_sample_plugin/ in the example directory.
+
+## License ##
+
+MIT
