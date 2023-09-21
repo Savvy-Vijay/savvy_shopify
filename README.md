@@ -31,8 +31,8 @@ To use this library in your code:
 
 ## Examples ##
 
-Examples found at https://pub.dev/packages/savvy_shopify/example are available in a `dart` version at https://pub.dev/packages/flutter_sample_plugin/ in the example directory.
+Examples found at https://pub.dev/packages/savvy_shopify/example are available in a `dart` version at https://pub.dev/packages/savvy_shopify/ in the example directory.
 
 ## License ##
 
-MIT
+GPL
