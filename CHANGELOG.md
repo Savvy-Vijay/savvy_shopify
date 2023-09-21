@@ -9,3 +9,6 @@ Added more platform and example
 
 ## 0.0.4
 Update example
+
+## 0.0.5
+Update example

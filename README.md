@@ -1,4 +1,4 @@
-# Savvient Sopify
+# Savvient Shopify
 
 A flutter package that works as a bridge between Our Api (which is used by Shopify) and Flutter Application. Here we are added some method which is get shopify location, shopify category, shopify product list and detail. You need to just use this method and get result and you will be set data in your desire UI
 
