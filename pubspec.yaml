@@ -1,6 +1,6 @@
 name: savvy_shopify
 description: Shopify library flutter package
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/Savvy-Vijay/savvy_shopify
 repository: https://github.com/Savvy-Vijay/savvy_shopify
 issue_tracker: https://github.com/Savvy-Vijay/savvy_shopify/issues
@@ -26,8 +26,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  openapi_generator: ^4.10.0
-  openapi_generator_annotations: ^4.10.0
   http: ^1.1.0
 
 dev_dependencies:
